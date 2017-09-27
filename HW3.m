@@ -8,6 +8,14 @@
 % solution to get the optimal alignment. If you prefer, it is acceptable to do this with
 % pencil and paper, you can then take a snapshot of your solution and
 % include it in your repository. 
+matchval=2;
+mismatchval=-1;
+ofdiag=ones(4)-eye(4);
+S=matchval*eye(4)+mismatchval*ofdiag;
+seq1='GTAATCC';
+seq2='GTATCCG';
+figure;
+[score,align,start]=swalign(seq1,seq2,'Alphabet','nt','ScoringMatrix',S,'Gapopen',1,'Showscore',true);
 
 %% Problem 2 - using the NCBI databases and sequence alignments
 
