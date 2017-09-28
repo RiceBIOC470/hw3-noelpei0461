@@ -25,7 +25,16 @@ figure;
 
 % Part 1. Perform an alignment of the coding DNA sequences of ERK1 and
 % ERK2. What fraction of base pairs in ERK1 can align to ERK2? 
+accession='NM_002746';
+gb_data=getgenbank(accession);
+seq1=gb_data.Sequence;
 
+accession2='NM_002745';
+gb_data2=getgenbank(accession2);
+seq2=gb_data2.Sequence;
+
+figure;
+[score,align,start]=swalign(seq1,seq2,'Alphabet','nt','Showscore',true);
 % Part2. Perform an alignment of the aminoacid sequences of ERK1 and ERK2.
 % What fraction of amino acids align?
 
