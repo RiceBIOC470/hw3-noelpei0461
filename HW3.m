@@ -32,16 +32,22 @@ seq1=gb_data.Sequence;
 accession2='NM_002745';
 gb_data2=getgenbank(accession2);
 seq2=gb_data2.Sequence;
+%790bps, 41%.
 
-figure;
-[score,align,start]=swalign(seq1,seq2,'Alphabet','nt','Showscore',true);
 % Part2. Perform an alignment of the aminoacid sequences of ERK1 and ERK2.
 % What fraction of amino acids align?
+NP_002737
+
+NP_002736
+%305/346; 88%
 
 % Part 3.  Use the NCBI tools to get mRNA sequences for the mouse genes ERK1 and
 % ERK2 and align both the coding DNA sequences and protein sequences to the
 % human versions. How similar are they? 
+X64605
+D10939
 
+% 77% identity.
 %% Problem 3: using blast tools programatically
 
 % Part 1. Write a function that takes an NCBI accession number and a number N as input and
