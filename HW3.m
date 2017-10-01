@@ -52,6 +52,17 @@ D10939
 
 % Part 1. Write a function that takes an NCBI accession number and a number N as input and
 % returns a cell array of the accession numbers for the top N blast hits. 
+function xx=blastN(a,b)
+aa=getgenbank(a);
+seq=aa.Sequence;
+[requestID,requestTime]=blastncbi(seq,'blastn');
+blast_data=getblast2(requestID,'WaitTime',requestTime);
+ax=[];
+for i=1:b;
+    ax(i)=blastdata.Hits(i).Accession;
+end
+xx=ax
+end
 
 % Part 2. Write a function that takes an accession number as input, calls your function 
 % from part 1, and returns two outputs - the closest scoring match in human DNA/RNA and the
