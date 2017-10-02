@@ -70,13 +70,13 @@ end
 % returned by getgenbank. Make sure your function does something sensible
 % if nothing human is found. 
 function F=blastNmatch(a)
-aa={};
+aaa={};
 bb={};
 AA=[];
 BB=[];
-Seqinfo=getgenbank(a);
-Seq=Seqinfo.Sequence;
-[requestID,requestTime]=blastncbi(Seq,'blastn');
+aa=getgenbank(a);
+seq=aa.Sequence;
+[requestID,requestTime]=blastncbi(seq,'blastn');
 blast_data=getblast(requestID,'WaitTime',requestTime);
 [~,N]=size(blast_data.Hits);
 for i=1:N
@@ -88,13 +88,13 @@ for i=1:N
     end
 end
 if isempty(BB)
-    aa=bb{AA(1)};
+    aaa=bb{AA(1)};
     fprintf('nothing human is found and the closet nonhuman is %s',char(F{1}));
 else if isempty(AA)
-     aa=bb{BB(1)};
+     aaa=bb{BB(1)};
     fprintf('nothing nonhuman is found and the closet human is %s',char(F{1}));
     else
-    aa={char(J{AA(1)});char(J{BB(1)})};
+    aaa={char(J{AA(1)});char(J{BB(1)})};
     fprintf('the clost human is %s and the closet nonhuman is %s',char(F{2}),char(F{1}));
     end
 end
