@@ -59,7 +59,7 @@ seq=aa.Sequence;
 blast_data=getblast2(requestID,'WaitTime',requestTime);
 ax=[];
 for i=1:b;
-    ax(i)=blastdata.Hits(i).Accession;
+    ax(i)=blastdata.Hits(i).Name;
 end
 xx=ax
 end
@@ -69,7 +69,36 @@ end
 % closest non-human match. Hint: see the "Source" or "SourceOrganism" field in the data
 % returned by getgenbank. Make sure your function does something sensible
 % if nothing human is found. 
-
+function F=blastNmatch(a)
+aa={};
+bb={};
+AA=[];
+BB=[];
+Seqinfo=getgenbank(a);
+Seq=Seqinfo.Sequence;
+[requestID,requestTime]=blastncbi(Seq,'blastn');
+blast_data=getblast(requestID,'WaitTime',requestTime);
+[~,N]=size(blast_data.Hits);
+for i=1:N
+    bb{i}={blast_data.Hits(i).Name};
+    if ~contains(char(J{i}),'Homo sapiens')&&~contains(char(J{i}),'Human')
+      AA=[AA,i];
+    else 
+     BB=[BB,i];
+    end
+end
+if isempty(BB)
+    aa=bb{AA(1)};
+    fprintf('nothing human is found and the closet nonhuman is %s',char(F{1}));
+else if isempty(AA)
+     aa=bb{BB(1)};
+    fprintf('nothing nonhuman is found and the closet human is %s',char(F{1}));
+    else
+    aa={char(J{AA(1)});char(J{BB(1)})};
+    fprintf('the clost human is %s and the closet nonhuman is %s',char(F{2}),char(F{1}));
+    end
+end
+end
 % Part 3. Choose at least one gene from the human genome and one gene from
 % another organism and run your code from part 2 on the relevant accession
 % numbers. Comment on the results. 
