@@ -36,14 +36,14 @@ seq2=gb_data2.Sequence;
 [score,align,start]=swalign(ERK1,ERK2,'Alphabet','nt','Showscore',true);
 
 
-%Using ncbi tools result: 790bps, 41%.
+%Using ncbi blastn tools result: 790bps, 41%.
 
 % Part2. Perform an alignment of the aminoacid sequences of ERK1 and ERK2.
 % What fraction of amino acids align?
 NP_002737
 
 NP_002736
-%Using ncbi tools result: 305/346; 88%
+%Using ncbi blastp tools result: 305/346; 88%
 
 % Part 3.  Use the NCBI tools to get mRNA sequences for the mouse genes ERK1 and
 % ERK2 and align both the coding DNA sequences and protein sequences to the
@@ -51,7 +51,7 @@ NP_002736
 X64605
 D10939
 
-% Using ncbi tools result: 77% identity.
+% Using ncbi blastn tools result: 77% identity.
 %% Problem 3: using blast tools programatically
 
 % Part 1. Write a function that takes an NCBI accession number and a number N as input and
@@ -112,4 +112,6 @@ the closest human is gi|91718898|ref|NM_002746.2| Homo sapiens mitogen-activated
 
 blastNmatch('NM_002745')
 Blast results are not available yet. Please wait ...
-the closest human is gi|75709178|ref|NM_002745.4| Homo sapiens mitogen-activated protein kinase 1 (MAPK1), transcript variant 1, mRNA, the closest nonhuman is gi|1034143019|ref|XM_003317123.4| PREDICTED: Pan troglodytes mitogen-activated protein kinase 1 (MAPK1), mRNA>> 
+the closest human is gi|75709178|ref|NM_002745.4| Homo sapiens mitogen-activated protein kinase 1 (MAPK1), transcript variant 1, mRNA, the closest nonhuman is gi|1034143019|ref|XM_003317123.4| PREDICTED: Pan troglodytes mitogen-activated protein kinase 1 (MAPK1), mRNA>>
+
+%My code focuses on characterizing Homosapiens and other species. However, in the first result, my code seems to fail. I think it is because the criteria of human gene does not limit to 'Homosapiens'.  
