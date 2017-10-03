@@ -32,14 +32,18 @@ seq1=gb_data.Sequence;
 accession2='NM_002745';
 gb_data2=getgenbank(accession2);
 seq2=gb_data2.Sequence;
-%790bps, 41%.
+
+[score,align,start]=swalign(ERK1,ERK2,'Alphabet','nt','Showscore',true);
+
+
+%Using ncbi tools result: 790bps, 41%.
 
 % Part2. Perform an alignment of the aminoacid sequences of ERK1 and ERK2.
 % What fraction of amino acids align?
 NP_002737
 
 NP_002736
-%305/346; 88%
+%Using ncbi tools result: 305/346; 88%
 
 % Part 3.  Use the NCBI tools to get mRNA sequences for the mouse genes ERK1 and
 % ERK2 and align both the coding DNA sequences and protein sequences to the
@@ -47,7 +51,7 @@ NP_002736
 X64605
 D10939
 
-% 77% identity.
+% Using ncbi tools result: 77% identity.
 %% Problem 3: using blast tools programatically
 
 % Part 1. Write a function that takes an NCBI accession number and a number N as input and
@@ -72,35 +76,40 @@ end
 function F=blastNmatch(a)
 aaa={};
 bb={};
-AA=[];
-BB=[];
 aa=getgenbank(a);
 seq=aa.Sequence;
 [requestID,requestTime]=blastncbi(seq,'blastn');
 blast_data=getblast(requestID,'WaitTime',requestTime);
-[~,N]=size(blast_data.Hits);
+N=length(blast_data.Hits);
+cc=[];
+dd=[];
 for i=1:N
     bb{i}={blast_data.Hits(i).Name};
-    if ~contains(char(J{i}),'Homo sapiens')&&~contains(char(J{i}),'Human')
-      AA=[AA,i];
+    if ~contains(char(bb{i}),'Homo sapiens')
+      cc=[cc,i];
     else 
-     BB=[BB,i];
+     dd=[dd,i];
     end
 end
-if isempty(BB)
-    aaa=bb{AA(1)};
-    fprintf('nothing human is found and the closet nonhuman is %s',char(F{1}));
-else if isempty(AA)
-     aaa=bb{BB(1)};
-    fprintf('nothing nonhuman is found and the closet human is %s',char(F{1}));
+if isempty(dd)
+    aaa=bb{cc(1)};
+    fprintf('no human is found',char(aaa{1}));
+else if isempty(cc)
+     aaa=bb{cc(1)};
+    fprintf('no nonhuman is found',char(aaa{1}));
     else
-    aaa={char(J{AA(1)});char(J{BB(1)})};
-    fprintf('the clost human is %s and the closet nonhuman is %s',char(F{2}),char(F{1}));
+    aaa={char(bb{cc(1)});char(bb{dd(1)})};
+    fprintf('the closest human is %s, the closest nonhuman is %s',char(aaa{2}),char(aaa{1}));
     end
 end
 end
 % Part 3. Choose at least one gene from the human genome and one gene from
 % another organism and run your code from part 2 on the relevant accession
 % numbers. Comment on the results. 
+blastNmatch('NM_002746')
+Blast results are not available yet. Please wait ...
+the closest human is gi|91718898|ref|NM_002746.2| Homo sapiens mitogen-activated protein kinase 3 (MAPK3), transcript variant 1, mRNA, the closest nonhuman is gi|31220|emb|X60188.1| Human ERK1 mRNA for protein serine/threonine kinase>> 
 
-
+blastNmatch('NM_002745')
+Blast results are not available yet. Please wait ...
+the closest human is gi|75709178|ref|NM_002745.4| Homo sapiens mitogen-activated protein kinase 1 (MAPK1), transcript variant 1, mRNA, the closest nonhuman is gi|1034143019|ref|XM_003317123.4| PREDICTED: Pan troglodytes mitogen-activated protein kinase 1 (MAPK1), mRNA>> 
