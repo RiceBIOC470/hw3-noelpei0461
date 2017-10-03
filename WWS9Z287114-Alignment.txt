@@ -1,0 +1,21 @@
+BLASTN 2.7.0+
+Reference: Zheng Zhang, Scott Schwartz, Lukas Wagner, and
+Webb Miller (2000), "A greedy algorithm for aligning DNA
+sequences", J Comput Biol 2000; 7(1-2):203-14.
+
+
+RID: WWS9Z287114
+
+
+
+Query= NM_002746.2 Homo sapiens mitogen-activated protein kinase 3 (MAPK3),
+transcript variant 1, mRNA
+
+Length=1902
+
+
+<b>No significant similarity found.</b> For reasons why, <A HREF = "Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=FAQ"><b>click here</A>.</b><br><br>
+
+
+
+

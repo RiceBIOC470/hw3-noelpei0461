@@ -1,0 +1,51 @@
+BLASTN 2.7.0+
+Reference: Stephen F. Altschul, Thomas L. Madden, Alejandro
+A. Schaffer, Jinghui Zhang, Zheng Zhang, Webb Miller, and
+David J. Lipman (1997), "Gapped BLAST and PSI-BLAST: a new
+generation of protein database search programs", Nucleic
+Acids Res. 25:3389-3402.
+
+
+RID: WWU16AF5114
+
+
+Query= X64605.1 Mus musculus erk1 mRNA
+
+Length=117
+
+
+                                                                   Score     E
+Sequences producing significant alignments:                       (Bits)  Value
+
+D10939.1  Mus musculus mRNA for ERK2, complete cds                 87.8    7e-22
+
+ALIGNMENTS
+>D10939.1 Mus musculus mRNA for ERK2, complete cds
+Length=1747
+
+ Score = 87.8 bits (96),  Expect = 7e-22
+ Identities = 89/116 (77%), Gaps = 0/116 (0%)
+ Strand=Plus/Plus
+
+Query  1    TCCAATCTGCTTATCAACACCCCCTGCGACCTTAAGATCTGTGATTTTGGCCTGGCCCGG  60
+            ||||| || ||  | |||||| | || || || ||||||||||| |||||||| ||||| 
+Sbjct  511  TCCAACCTCCTGCTGAACACCACTTGTGATCTCAAGATCTGTGACTTTGGCCTTGCCCGT  570
+
+Query  61   ATTGCTGACCCTGAGCACGACCACACTGGCTTTCTGACGGAGTATGTGGCCACACG  116
+             |||| || || || || || ||||| || ||  |||| ||||| || ||||||||
+Sbjct  571  GTTGCAGATCCAGATCATGATCACACAGGGTTCTTGACAGAGTACGTAGCCACACG  626
+
+
+ Score = 21.1 bits (22),  Expect = 0.080
+ Identities = 11/11 (100%), Gaps = 0/11 (0%)
+ Strand=Plus/Minus
+
+Query  32    TTAAGATCTGT  42
+             |||||||||||
+Sbjct  1137  TTAAGATCTGT  1127
+
+
+
+
+
+
