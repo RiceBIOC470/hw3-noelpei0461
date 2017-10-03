@@ -33,7 +33,7 @@ accession2='NM_002745';
 gb_data2=getgenbank(accession2);
 seq2=gb_data2.Sequence;
 
-[score,align,start]=swalign(ERK1,ERK2,'Alphabet','nt','Showscore',true);
+[score,align,start]=swalign(seq1,seq2,'Alphabet','nt','Showscore',true);
 
 
 %Using ncbi blastn tools result: 790bps, 41%.
@@ -43,6 +43,18 @@ seq2=gb_data2.Sequence;
 NP_002737
 
 NP_002736
+
+accession='NM_002746';
+gb_data=getgenbank(accession);
+seq1=gb_data.Sequence;
+aa1=gb_data.CDS.translation;
+
+accession2='NM_002745';
+gb_data2=getgenbank(accession2);
+aa2=gb_data.CDS.translation;
+
+[score,align,start]=swalign(aa1,aa2,'Alphabet','nt','Showscore',true);
+
 %Using ncbi blastp tools result: 305/346; 88%
 
 % Part 3.  Use the NCBI tools to get mRNA sequences for the mouse genes ERK1 and
@@ -50,7 +62,15 @@ NP_002736
 % human versions. How similar are they? 
 X64605
 D10939
+accession='X64605';
+gb_data=getgenbank(accession);
+seq1=gb_data.Sequence;
 
+accession2='D10939';
+gb_data2=getgenbank(accession2);
+seq2=gb_data2.Sequence;
+
+[score,align,start]=swalign(aa1,aa2,'Alphabet','nt','Showscore',true);
 % Using ncbi blastn tools result: 77% identity.
 %% Problem 3: using blast tools programatically
 
