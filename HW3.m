@@ -1,3 +1,14 @@
+% GB comments
+1.	100
+2a. 50 the fraction of base pairs should have been calculated programmatically and not using NCBI blast tools. The result of 41% is also incorrect.  
+2b. 50 Implementation of swalign function is incorrect. The questions specifically asks for amino acids, but you in your input argument you tell it to use ‘nt’ (nucleotides). This is incorrect, and needs to be changed to ‘aa’ for the code to work correctly. Again, the question is asking for you to programmatically solve the question. 
+2c. 0 This is all incorrect. You don’t address the question 
+3a 100 
+3b. 100
+3c. 100  	
+Overall: 71
+
+
 %HW3
 
 %% Problem 1 - Smith-Waterman alignment
